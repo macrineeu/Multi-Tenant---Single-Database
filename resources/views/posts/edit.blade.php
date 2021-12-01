@@ -14,8 +14,9 @@
         </div>
     @endif
 
-    <form action="{{ route('posts.update') }}" method="post">
+    <form action="{{ route('posts.update', $post->id) }}" method="post">
         @csrf
+        <input type="hidden" name="_method" value="PUT">
         <div class="form-group">
             <input type="text" name="title" class="form-control" placeholder="Titulo" value="{{ $post->title }}">
         </div>
