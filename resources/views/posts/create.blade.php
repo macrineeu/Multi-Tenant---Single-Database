@@ -4,9 +4,10 @@
 
     <h1>Cadastrar Posts</h1>
 
-    <form action="{{ route('posts.store') }}" method="get">
+    <form action="{{ route('posts.store') }}" method="post">
+        @csrf
         <div class="form-group">
-            <input type="text" name="titulo" class="form-control" placeholder="Titulo">
+            <input type="text" name="title" class="form-control" placeholder="Titulo">
         </div>
         <div class="form-group">
             <textarea name="body" class="form-control" cols="30" rows="10" placeholder="Descricao"></textarea>
