@@ -16,7 +16,7 @@ class PostController extends Controller
     {
         $posts = Post::get();
 
-        dd($posts);
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -37,7 +37,9 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = $request->user()->posts()->create($request->all());
+        
+        return redirect()->back()->withSucess('Cadastro Realizado');
     }
 
     /**
