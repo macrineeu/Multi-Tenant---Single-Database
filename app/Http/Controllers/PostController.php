@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUpdatePostFormRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -35,7 +36,7 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePostFormRequest $request)
     {
         $post = $request->user()->posts()->create($request->all());
         
