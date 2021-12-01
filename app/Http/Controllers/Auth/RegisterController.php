@@ -9,7 +9,6 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Webpatser\Uuid\Uuid;
 
 class RegisterController extends Controller
 {
@@ -68,8 +67,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $tenant = Tenant::create([
-            'name' => $data['tenant'],
-            'uuid' => Uuid::generate(4)
+            'name' => $data['tenant']
         ]);
 
         return $tenant->users()->create([
